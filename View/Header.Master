@@ -1,0 +1,248 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Header.master.cs" Inherits="projectlab.Header"  %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    
+    <title>WBG Gaming Store</title>
+    <link rel="icon" href="~/Assets/wbg-gaming-store-logo.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <%--CSS--%>
+    <link rel="stylesheet" type="text/css" href="~/Style/css/bootstrap.css" />
+
+    <%--JS--%>
+    <script defer src="../Style/js/bootstrap.bundle.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+
+        .contentCon{
+            min-width:93em;
+            min-height: 37em;
+            display :flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+
+            margin-top:8vh;
+            margin-bottom:8vh;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:"Roboto",sans-serif;
+        
+        }
+
+        .artistCon, .albumCon{
+            display:flex; 
+            gap:3em; 
+            justify-content:center; 
+            align-items:center;
+        }
+
+        .transactionCon{
+            display:flex; 
+            flex-direction:column;
+            padding:1em;
+        }
+
+        .transactionDetCon{
+            display:flex; 
+            justify-content:center;  
+            gap:2em; 
+            padding:1em;
+        }
+
+        .transactionDescImg{
+            min-width:11.8em;
+            max-width:11.8em;
+        }
+        
+        .transactionDesc{
+            min-width:10em; 
+            max-width:10em;
+
+        }
+
+        .transactionDescBtn{
+            min-width:10em; 
+            max-width:10em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .boxCon{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding: 0.6em;
+            gap:1em;
+        }
+
+       
+
+        .artistRow, .albumRow{
+            display:flex; 
+            flex-wrap:wrap; 
+            gap:5em;
+        }
+
+        .artistCol, .albumCol{
+            display:flex; 
+            flex-wrap:wrap;
+        }
+
+        .artistImg, .albumImg{
+            max-width:10em; 
+            min-width:10em;
+        }
+
+        .artistDesc, .albumDesc{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            min-width:12em;
+            max-width:12em;
+        }
+        .albumData{
+            display:flex;
+            flex-direction:column;
+            align-items:flex-start;
+            min-width:12em;
+            max-width:12em;
+        }
+
+        .lbl{
+            min-width:5em;
+            max-width:5em;
+            text-align:center;
+        }
+        .tBox{
+            min-width:200px;
+            max-width:250px;
+        }
+
+        .navbtn{
+            background :none;
+            border:0;
+            
+            font-weight:600;
+            font-size: 18px;
+            color:#D4ADFC;
+        }
+
+        .btn{
+             background-color: #4CAF50;
+             color: white;
+             border: none;
+             padding: 10px 20px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 16px;
+             cursor: pointer;
+             border-radius: 4px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+
+        .loginForm, .registerForm, .updateArtistForm, .insertArtistForm, .updateAlbumForm, .insertAlbumForm, .updateProfile{
+            padding:20px;
+            display : flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            gap:5px;
+            border:1px black solid;
+            border-radius:5%;
+            margin : 3em;
+            min-width:30em;
+            max-width:30em;
+            background-color:#5C469C;
+        }
+
+        header{
+            display: flex;
+            justify-content:space-between;
+            background:#1D267D;
+            padding:2vh;
+            height: 14vh;
+        }
+
+        nav{
+            display :flex;
+            gap : 20px;
+        }
+
+        footer{
+            position:fixed;
+            bottom:0;
+            right:0;
+            left:0;
+            text-align:center;
+            padding : 0.5em;
+            background: #1D267D;
+        }
+
+
+        body{
+            background-color:#0C134F;
+            color: #D4ADFC;
+        }
+
+        .imgLogo{
+            width:100px;
+        }
+      
+
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            
+            
+                <asp:ImageButton ID="imgLogo" ImageUrl="~/Assets/wbg-gaming-store-logo.png" onclick="Home_Click" runat="server" />
+            
+                <nav>
+                    <asp:Button ID="Home" runat="server" CssClass="navbtn" Text="Home" onclick="Home_Click"/>
+                    <asp:Button ID="Register" runat="server" CssClass="navbtn"  Text="Register" onclick="Register_Click"/>
+                    <asp:Button ID="Login" runat="server"  CssClass="navbtn" Text="Login" onclick="Login_Click"/>
+                    <asp:Button ID="Cart" runat="server" CssClass="navbtn" Text="Cart" OnClick="Cart_Click" />
+                   <%-- <asp:Button ID="Transaction" runat="server" CssClass="navbtn"  Text="Transaction" OnClick="Transaction_Click" />--%>
+                    <asp:Button ID="UpdateProfile" runat="server" CssClass="navbtn"  Text="Update Profile" OnClick="UpdateProfile_Click" />
+                    <asp:Button ID="Logout" runat="server" CssClass="navbtn" Text="Log Out" OnClick="Logout_Click" />
+                </nav>
+
+        </header>
+        <div id:"content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer>
+            Copyright &copy;Group B
+
+        </footer>
+    </form>
+</body>
+</html>
